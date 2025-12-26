@@ -1,5 +1,5 @@
 async function loadUser() {
-    const res = await fetch("http://localhost:3000/api/dashboard", {
+    const res = await fetch("https://webappvercel.azurewebsites.net/api/dashboard", {
         method: "GET",
         credentials: "include"
     });
@@ -11,7 +11,7 @@ async function loadUser() {
 }
 
 document.getElementById('logoutBtn').addEventListener('click', async () => {
-    await fetch('http://localhost:3000/api/logout', {
+    await fetch('https://webappvercel.azurewebsites.net/api/logout', {
         method: 'POST',
         credentials: 'include'
     });
