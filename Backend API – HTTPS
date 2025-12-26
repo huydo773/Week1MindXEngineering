@@ -1,1 +1,2 @@
-https://webappvercel.azurewebsites.net/
+https://webappvercel.azurewebsites.net/api/health
+https://webappvercel.azurewebsites.net/api/hello
