@@ -22,19 +22,12 @@ cd backend
 # Install dependencies
 npm install
 
-# Configure environment variables
-# Create a .env file:
-# PORT=3000
-# DATABASE_URL=<your-database-url>
-
 # Start server
 npm run dev
 Backend URL: http://localhost:3000
-'''
-
+```
 Frontend
-bash
-Sao chép mã
+```
 cd frontend
 
 # Install dependencies
@@ -43,44 +36,47 @@ npm install
 # Start development server
 npm start
 Frontend URL: http://localhost:8080
+```
+## Docker Development
 
-Docker Development
-bash
-Sao chép mã
 # Build Docker Images
-docker build -t backend-app ./backend
-docker build -t frontend-app ./frontend
-
+```
+docker build -t api:v1 .
+docker build -t web:v1 .
+```
 # Run Containers
-docker run -p 3000:3000 backend-app
-docker run -p 8080:80 frontend-app
-Deployment Process
-Step 1: Push Docker Images to Azure Container Registry
-bash
-docker tag backend-app <acr-name>.azurecr.io/backend:v1
-docker tag frontend-app <acr-name>.azurecr.io/frontend:v1
-docker push <acr-name>.azurecr.io/backend:v1
-docker push <acr-name>.azurecr.io/frontend:v1
-Step 2: Deploy to Azure Web App
-Create Web Apps for frontend and backend
+```
+docker run -p 3000:3000 api:v1
+docker run -p 8080:80 web:v1
+```
+## Deployment Process
+## Step 1: Push Docker Images to Azure Container Registry
+```
+docker tag api:v1 webapp2.azurecr.io/api:v1
+docker tag web:v1 mindxintern07.azurecr.io/web:v1
+docker push webapp2.azurecr.io/api:v1
+docker push mindxintern07.azurecr.io/web:v1
+```
+## Step 2: Deploy to Azure Web App
+-Create Web Apps for frontend and backend
 
-Configure Web App to pull images from ACR
+-Configure Web App to pull images from ACR
 
-Set environment variables in Azure Web App
+-Set environment variables in Azure Web App
 
-Start Web Apps
+-Start Web Apps
 
-Step 3: Verify Deployment
-Access the frontend URL
+## Step 3: Verify Deployment
+-Access the frontend URL
 
-Test API endpoints
+-Test API endpoints
 
-Check logs for errors
+-Check logs for errors
 
-Troubleshooting
-CORS Issues: Ensure backend Access-Control-Allow-Origin header matches frontend URL
+## Troubleshooting
+-CORS Issues: Ensure backend Access-Control-Allow-Origin header matches frontend URL
 
-Port Conflicts: Check if local ports 3000 or 8080 are free
+-Port Conflicts: Check if local ports 3000 or 8080 are free
 
-Container Issues: Use docker logs <container-id> to debug
+-Container Issues: Use docker logs <container-id> to debug
 
