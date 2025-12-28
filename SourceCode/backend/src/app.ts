@@ -12,7 +12,7 @@ const JWT_SECRET = process.env.JWT_SECRET!;
 // Danh sách frontend được phép gọi
 const allowedOrigins = [
     "http://localhost:8080",
-    "http://48.217.211.70",
+    "http://48.194.96.109",
     "https://frontendweb.azurewebsites.net"
 ];
 
@@ -61,7 +61,7 @@ app.get("/api/dashboard", authenticateToken, (req: any, res: any) => {
     res.json({ user: req.user });
 });
 
-app.use("/", healthRoute);
+app.use("/api", healthRoute);
 app.use("/api", helloRoute);
 app.use("/api", authRoute);
 
