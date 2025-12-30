@@ -55,6 +55,16 @@
     color: #374151;
 }
 
+.token-content {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    white-space: pre-wrap;
+    max-width: 100%;
+}
+
 .token-box pre {
     font-size: 12px;
     color: #1f2937;
