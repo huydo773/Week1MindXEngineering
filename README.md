@@ -30,7 +30,8 @@
 - **Frontend:** CSS, React
 - **Backend:** Node.js / Express (or your backend framework)  
 - **Containerization:** Docker  
-- **Deployment:** Azure Web App, Azure Container Registry (ACR)
+- **Deployment:** Azure Kubernetes Service (AKS), Azure Container Registry (ACR), Cert-Manager (Let's Encrypt DNS-01 via Cloudflare)
+
 ### Quick checks:
 ```bash
 az account show
