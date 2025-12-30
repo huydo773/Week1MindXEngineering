@@ -11,7 +11,7 @@ const app = express();
 const allowedOrigins = [
     "http://localhost:8080",
     "http://48.194.96.109",
-    "https://frontendweb.azurewebsites.net"
+    "https://quanghuy-07.id.vn"
 ];
 
 app.use(cors({
