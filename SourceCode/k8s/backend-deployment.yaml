@@ -42,4 +42,9 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: openid-secret
-                  key: OPENID_REDIRECT_URI      
+                  key: OPENID_REDIRECT_URI
+            - name: APPLICATIONINSIGHTS_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: app-insights-secret
+                  key: APPLICATIONINSIGHTS_CONNECTION_STRING      

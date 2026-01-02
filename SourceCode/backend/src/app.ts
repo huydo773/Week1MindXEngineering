@@ -32,5 +32,10 @@ app.use("/api", healthRoute);
 app.use("/api", helloRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/dashboard", dashboardRoute);
+// ================== TestError ==================
+app.get("/api/test-error", (req, res) => {
+    res.status(500).send("Test alert error");
+});
+
 
 export default app;
