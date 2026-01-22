@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-This analysis is based on a dataset of **131 helpdesk tickets** imported from a sample ticket data file into the Odoo Helpdesk system.  
+This analysis is based on a dataset of **131 helpdesk tickets** imported from a sample ticket data file into the Odoo Helpdesk system
 Since the data is imported for practice purposes, certain limitations are acknowledged, such as a high volume of tickets created within a short period and the absence of assignment information.
 
 The analysis focuses on:
@@ -11,12 +11,12 @@ The analysis focuses on:
 - Grouping issues based on **ticket titles**
 - Assessing the overall impact of recurring issues
 
-## 2. Ticket Summary Analysis
+## 2. Ticket Summary Analysis(Week 4)
 
 ### 2.1 Total Tickets
 - **Total number of tickets:** 131
 
-### 2.2 Ticket Distribution by Stage
+### 2.2 Ticket Distribution by Stage In week-4
 
 | Stage         | Number of Tickets | Percentage |
 |---------------|-------------------|------------|
@@ -44,7 +44,7 @@ The analysis focuses on:
 - **High and Urgent tickets account for approximately 63%** of all tickets.
 - This suggests that most reported issues are considered to have significant operational impact.
 
-## 3. Category and Issue Analysis
+## 3. Category and Issue Analysis(Week 4)
 
 ### 3.1 Category Analysis
 
@@ -100,7 +100,7 @@ Recurring patterns were identified by analyzing ticket titles.
 **Conclusion:**
 > The most frequent issues are related to system functionality (CRM, Dropout process) and internal testing activities, indicating a need for better separation between test and production tickets.
 
-## 4. Pattern and Trend Analysis
+## 4. Pattern and Trend Analysis(January)
 
 ### 4.1 Recurring Patterns
 - Many tickets describe the same issue using different wording.
