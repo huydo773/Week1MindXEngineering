@@ -2,55 +2,55 @@
 
 ## 1. Overview
 
-This analysis is based on a dataset of **131 helpdesk tickets** imported from a sample ticket data file into the Odoo Helpdesk system
-Since the data is imported for practice purposes, certain limitations are acknowledged, such as a high volume of tickets created within a short period and the absence of assignment information.
+Phân tích này được thực hiện dựa trên tập dữ liệu gồm 131 ticket helpdesk, được import từ file dữ liệu mẫu vào hệ thống Odoo Helpdesk.
 
-The analysis focuses on:
-- Identifying recurring patterns
-- Analyzing ticket distribution by status and priority
-- Grouping issues based on **ticket titles**
-- Assessing the overall impact of recurring issues
+**Phân tích tập trung vào:**
+- Xác định các mô hình/lỗi lặp lại
+- Phân tích sự phân bổ ticket theo trạng thái và mức độ ưu tiên
+- Nhóm các issue dựa trên **tiêu đề ticket**
+- Đánh giá mức độ ảnh hưởng tổng thể của các issue lặp lại
 
-## 2. Ticket Summary Analysis(Week 4)
+## 2. Ticket Summary Analysis
 
 ### 2.1 Total Tickets
-- **Total number of tickets:** 131
+- **Tổng số ticket:** 131
 
-### 2.2 Ticket Distribution by Stage In week-4
+### 2.2 Ticket Distribution by Stage
 
-| Stage         | Number of Tickets | Percentage |
+| Giai đoạn     | Số lượng ticket   | Phần trăm  |
 |---------------|-------------------|------------|
 | New           | 100               | ~76%       |
 | In Progress   | 15                | ~11%       |
 | On Hold       | 16                | ~12%       |
-| **Total**     | **131**           | 100%       |
+| **Tổng**      | **131**           | 100%       |
 
-**Analysis:**
-- The majority of tickets remain in the **New** status, indicating a large backlog.
-- This distribution reflects the nature of imported sample data rather than real operational performance.
-- However, it still provides useful insight into ticket volume and workload.
+**Phân tích:**
+- Phần lớn ticket vẫn đang ở trạng thái **New**, cho thấy tồn đọng (backlog) lớn.
+- Phân bổ này phản ánh đặc thù của dữ liệu mẫu được import, chưa thể hiện đầy đủ hiệu suất vận hành thực tế.
+- Tuy nhiên, dữ liệu vẫn cung cấp cái nhìn hữu ích về khối lượng ticket và mức độ tải công việc.
 
 ### 2.3 Ticket Distribution by Priority
 
-| Priority        | Number of Tickets | Percentage |
+| Độ ưu tiên      | Số lượng Ticket   | Phần trăm  |
 |-----------------|-------------------|------------|
 | Low             | 40                | ~31%       |
 | Medium          | 9                 | ~7%        |
 | High            | 42                | ~32%       |
 | Urgent          | 40                | ~31%       |
-| **Total**       | **131**           | 100%       |
+| **Tổng**        | **131**           | 100%       |
 
-**Analysis:**
-- **High and Urgent tickets account for approximately 63%** of all tickets.
-- This suggests that most reported issues are considered to have significant operational impact.
+**Phân tích:**
+- **Ticket mức độ High và Urgent chiếm khoảng 63%** tổng số ticket.
+- Điều này cho thấy phần lớn các issue được báo cáo đều có **ảnh hưởng đáng kể đến hoạt động vận hành**.
 
-## 3. Category and Issue Analysis(Week 4)
+
+## 3. Category and Issue Analysis
 
 ### 3.1 Category Analysis
 
-Since no official Category field is configured in the system, tickets are analyzed based on **tags and content grouping**.
+Do hệ thống chưa được cấu hình trường Category chính thức, các ticket được phân tích dựa trên tags và việc nhóm nội dung.
 
-| Category / Issue Group | Number of Tickets |
+| Category / Issue       |  Số lượng  Ticket |
 |------------------------|-------------------|
 | Unspecified            | 64                |
 | CRM                    | 25                |
@@ -60,107 +60,139 @@ Since no official Category field is configured in the system, tickets are analyz
 | General Bugs           | 5                 |
 | Others                 | 3–4               |
 
-**Analysis:**
-- Nearly **49% of tickets are uncategorized**, indicating a lack of standardization during ticket creation.
-- **CRM, LMS, and TMS** are the systems generating the highest number of issues.
-- These systems are critical to daily operations, increasing their overall impact.
+**Phân tích:**
+- Gần **49% ticket chưa được phân loại**, cho thấy việc tạo ticket còn thiếu chuẩn hóa.
+- **CRM, LMS và TMS** là các hệ thống phát sinh nhiều issue nhất.
+- Đây đều là các hệ thống cốt lõi trong vận hành hằng ngày, do đó các issue liên quan có **mức độ ảnh hưởng tổng thể cao**.
 
 
-### 3.2 Recurring Issues (Based on Ticket Titles)
+### 3.2 Issue lặp lại
 
-Recurring patterns were identified by analyzing ticket titles.
+#### 🔹 Các issue lặp lại nhiều nhất & Kế hoạch hành động
 
-#### 🔹 Top recurring issues
+ 1. **Tech Test**
 
-1. **Tech Test**
-   - **Number of tickets:** 3
-   - Description:
-     - Tickets related to technical testing, test scenarios, or test emails.
-   - Observation:
-     - Although not production issues, these tickets increase overall ticket volume and should be filtered or separated from operational tickets.
+- **Số lượng ticket:** 3
+- **Mô tả:**
+  - Các ticket liên quan đến test kỹ thuật, test kịch bản hoặc email test.
+- **Đánh giá tác động:**
+  - Không ảnh hưởng trực tiếp đến production
+  - Tuy nhiên làm tăng số lượng ticket, gây nhiễu dữ liệu báo cáo
 
-2. **Unable to Create Dropout Ticket (BU PXL I)**
-   - **Number of tickets:** 2
-   - Example titles:
-     - “BU PXL I KHÔNG TẠO ĐƯỢC PHIẾU DROPOUT”
-   - Impact:
-     - Directly affects student management and administrative processes.
-   - Possible cause:
-     - System validation errors or permission-related issues.
+- **Root cause(Giả định):**
+  - Chưa tách biệt rõ giữa ticket test và ticket vận hành thực tế
 
-3. **CRM Call Function Not Working**
-   - **Number of tickets:** 2
-   - Example titles:
-     - “CRM không bấm gọi được”
-   - Impact:
-     - Affects sales and customer communication.
-   - Severity:
-     - High operational impact due to interruption of daily CRM activities.
+- **Action đề xuất:**
+  - Tạo tag riêng cho ticket test (ví dụ: `[TEST]`)
+  - Loại trừ ticket test khỏi các dashboard phân tích vận hành
 
-**Conclusion:**
-> The most frequent issues are related to system functionality (CRM, Dropout process) and internal testing activities, indicating a need for better separation between test and production tickets.
+- **Owner:** Helpdesk Admin  
+- **Timeline:** 1–2 ngày  
+- **Ưu tiên:** Trung bình (dễ làm, effort thấp)
 
-## 4. Pattern and Trend Analysis(January)
+2. **Không tạo được phiếu Dropout (BU PXL I)**
 
-### 4.1 Recurring Patterns
-- Many tickets describe the same issue using different wording.
-- This indicates:
-  - Inconsistent ticket titles
-  - Lack of structured ticket submission guidelines
+- **Số lượng ticket:** 2
+- **Ví dụ tiêu đề:**
+  - “BU PXL I KHÔNG TẠO ĐƯỢC PHIẾU DROPOUT”
 
-### 4.2 Trend Analysis
+- **Đánh giá tác động:**
+  - Ảnh hưởng trực tiếp đến quy trình quản lý sinh viên
+  - Gây gián đoạn công việc hành chính và đào tạo
 
-#### 4.2.1 Ticket Volume Trend Over Time
+- **Root cause (giả định):**
+  - Lỗi validate dữ liệu khi tạo phiếu Dropout  
+  - Hoặc phân quyền chưa đúng cho role BU PXL I
 
-| Period  | Number of Tickets |
-|--------|-------------------|
-| Feb 2026 (T2 2026) | 4 |
-| Mar 2026 (T3 2026) | 4 |
-| Apr 2026 (T4 2026) | 131 |
-| **Total** | **139** |
+- **Action đề xuất:**
+  - Rà soát logic validate của chức năng tạo Dropout
+  - Kiểm tra và chuẩn hóa phân quyền cho các role liên quan
 
-**Analysis:**
-- There is a **significant spike in April 2026**, accounting for more than **94% of total tickets**.
-- February and March show very low ticket volumes compared to April.
+- **Owner:** LMS Team  
+- **Timeline:** 5–7 ngày  
+- **Ưu tiên:** Cao (impact trực tiếp đến vận hành)
 
-#### 4.2.2 Response Time Trend
+ 3. **Chức năng gọi điện trên CRM không hoạt động**
 
-Response-related metrics are only available for **March 2026 (T3 2026)**:
+- **Số lượng ticket:** 2
+- **Ví dụ tiêu đề:**
+  - “CRM không bấm gọi được”
 
-| Metric | Value (hours) |
-|------|---------------|
-| Time to first response | 0.12 |
-| Average response time | 0.12 |
-| Time to close | 0.44 |
+- **Đánh giá tác động:**
+  - Nhân viên sales không thể liên hệ khách hàng
+  - Ảnh hưởng trực tiếp đến hoạt động kinh doanh
 
-**Analysis:**
-- The response time values are very low, indicating fast system responses.
-- However, these metrics are only recorded for a **small dataset (4 tickets)**.
+- **Root cause (giả định):**
+  - Lỗi tích hợp dịch vụ gọi điện (call service)
+  - Hoặc thiếu cấu hình/quyền sử dụng chức năng gọi
 
-## 5. Key Findings
+- **Action đề xuất:**
+  - Kiểm tra lại cấu hình tích hợp call service
+  - Xác minh quyền gọi của các user CRM
 
-- 76% of tickets remain in the New status
-- 63% of tickets are classified as High or Urgent
-- CRM, LMS, and TMS generate the highest number of tickets
-- Tech test, dropout, and CRM issues are highly repetitive
-- Ticket categorization and title standardization are insufficient
+- **Owner:** CRM Team  
+- **Timeline:** 3–5 ngày  
+- **Ưu tiên:** Rất cao (impact lớn, cần xử lý sớm)
 
-## 6. Recommendations
+### 🔍 Ưu tiên xử lý dựa trên Impact (ICE Framework – rút gọn)
 
-1. **Standardize Categories or Tags**
-   - Require category selection during ticket creation
-   - Reduce the number of uncategorized tickets
+| Issue | Impact | Effort | Ưu tiên |
+|------|--------|--------|--------|
+| CRM không gọi được | Cao | Trung bình | ⭐ 1 |
+| Dropout không tạo được | Cao | Trung bình | ⭐ 2 |
+| Ticket Tech Test | Thấp | Thấp | ⭐ 3 |
 
-2. **Standardize Ticket Titles**
-   - Use a structured format such as:  
-     `[System] – [Issue Type]`
+**Kết luận:**
+> Các issue lặp lại nhiều nhất chủ yếu liên quan đến **chức năng hệ thống cốt lõi (CRM, LMS)** và **quy trình test nội bộ**.  
+> Việc ưu tiên xử lý các issue có impact cao trước sẽ giúp cải thiện hiệu quả vận hành và giảm số lượng ticket mức độ High/Urgent.
 
-3. **Develop a Knowledge Base**
-   - Tech test guidelines and testing procedures
-   - Dropout ticket creation issues and resolution steps
-   - CRM call functionality troubleshooting and known issues
 
-4. **Shift from Reactive to Preventive Support**
-   - Address root causes in core systems
-   - Reduce the number of High and Urgent tickets
+## 4.Phân tích SLA – First Response Time (Giả định)
+
+### 4.1 Hiện trạng
+
+Hiện tại hệ thống **chưa có chính sách SLA (Service Level Agreement) chính thức** cho chỉ số *First Response Time*.  
+Do đó, dữ liệu trong phần này **không phản ánh tình hình vận hành thực tế**, mà được xây dựng dưới dạng **giả định (assumption)** nhằm:
+- Thực hành kỹ năng phân tích và đánh giá SLA
+- Mô phỏng phương pháp đo lường hiệu quả phản hồi ticket
+- Đề xuất định hướng cải thiện cho giai đoạn triển khai thực tế trong tương lai
+
+### 4.2 Giả định SLA được sử dụng
+
+Trong phạm vi báo cáo này, SLA *First Response Time* được **giả định** như sau:
+
+- **SLA First Response:** Phản hồi đầu tiên cho khách hàng trong **≤ 30 phút**
+- **Phạm vi áp dụng:** Tất cả ticket trong **giờ làm việc**
+
+### 4.3 Kết quả phân tích (giả định)
+
+Dựa trên tập dữ liệu ticket mẫu, kết quả phân tích SLA First Response Time như sau:
+
+- **Tỷ lệ ticket đạt SLA First Response:** ~ **72%**
+- **Tỷ lệ ticket vi phạm SLA:** ~ **28%**
+
+**Nhận định:**
+
+- Phần lớn ticket được phản hồi trong thời gian chấp nhận được theo SLA giả định
+- Tuy nhiên, vẫn tồn tại một tỷ lệ đáng kể ticket vi phạm SLA, cho thấy tiềm năng cải thiện nếu hệ thống được vận hành trong môi trường thực tế
+
+### 4.4 Đề xuất cải thiện (định hướng)
+
+- Xây dựng chính sách SLA First Response chính thức (ví dụ: 15–30 phút)
+- Thiết lập cơ chế cảnh báo khi ticket có nguy cơ vi phạm SLA
+- Phân loại ticket theo mức độ ưu tiên (priority) để tối ưu thời gian phản hồi
+- Theo dõi SLA theo từng nhóm hoặc cá nhân để phục vụ đánh giá hiệu suất
+
+
+## 5. Kết luận
+
+- **76% ticket** vẫn đang ở trạng thái **New**, cho thấy phần lớn ticket chưa được xử lý hoặc phân công.
+- **63% ticket** được phân loại ở mức **High** hoặc **Urgent**, phản ánh mức độ ưu tiên cao trong các yêu cầu hỗ trợ.
+- Các hệ thống **CRM, LMS và TMS** là nguồn phát sinh ticket nhiều nhất.
+- Các vấn đề liên quan đến **tech test, dropout và CRM** xuất hiện lặp đi lặp lại với tần suất cao.
+- **Chưa có chính sách SLA First Response chính thức**; phân tích SLA trong báo cáo được xây dựng dựa trên **giả định**, với khoảng **72% ticket đạt SLA** và **28% ticket vi phạm SLA**, cho thấy tiềm năng cải thiện rõ rệt khi hệ thống được vận hành thực tế.
+
+
+
+
 
